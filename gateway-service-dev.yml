@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: movieRoute 
+          uri: lb://movie-service 
+          predicates: 
+            - Path=/movies/**
+        - id: catalogRoute 
+          uri: lb://catalog-service 
+          predicates: 
+            - Path=/catalog/**
+
+info:
+  app:
+    name: gateway-service
+    description: Service created for Parcial Especializacion Backend I
+    version: 1.0.0

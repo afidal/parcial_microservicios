@@ -1,0 +1,22 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-service
+  zipkin:
+    enabled: true
+    baseUrl: http://localhost:9411
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/afidal/final_microservicios
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+info:
+  app:
+    name: ${spring.application.name}
+    version: 1.0.0
+    description: Config Service Final Materia Especialización Backend I
